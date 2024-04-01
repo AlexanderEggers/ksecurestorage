@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.alexandereggers"
-version = "0.0.2"
+version = (System.getenv("RELEASE_TAG_NAME") ?: "v0.0.0-local").replace("v", "")
 
 kotlin {
     androidTarget {

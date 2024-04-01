@@ -2,7 +2,6 @@ name: Deploy library
 on:
   release:
     types: [published]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -23,5 +22,6 @@ jobs:
       - name: Release library
         run: ./gradlew ksecurestorage:publish
         env:
+          RELEASE_TAG_NAME: ${{ github.event.release.tag_name }}
           GH_USER: ${{ secrets.GH_USER }}
           GH_TOKEN: ${{ secrets.GH_PUBLISH_TOKEN }}
