@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.alexandereggers.ksecurestorage.example.android"
+    namespace = "io.github.alexandereggers.ksecurestorage.example.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.alexandereggers.ksecurestorage.example.android"
+        applicationId = "io.github.alexandereggers.ksecurestorage.example.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

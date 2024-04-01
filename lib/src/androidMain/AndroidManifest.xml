@@ -9,7 +9,7 @@
             tools:node="merge">
 
             <meta-data
-                android:name="com.alexandereggers.ksecurestorage.KSecureStorageInitializer"
+                android:name="io.github.alexandereggers.ksecurestorage.KSecureStorageInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

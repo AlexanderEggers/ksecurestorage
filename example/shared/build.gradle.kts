@@ -41,7 +41,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.alexandereggers.ksecurestorage_example"
+    namespace = "io.github.alexandereggers.ksecurestorage.example"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
