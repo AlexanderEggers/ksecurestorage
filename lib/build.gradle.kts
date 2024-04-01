@@ -28,17 +28,6 @@ kotlin {
         }
     }
 
-    @Suppress("OPT_IN_USAGE")
-    compilerOptions {
-        targets.configureEach {
-            compilations.configureEach {
-                compilerOptions.configure {
-                    freeCompilerArgs.add("-Xexpect-actual-classes")
-                }
-            }
-        }
-    }
-
     sourceSets {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -50,6 +39,8 @@ kotlin {
             }
         }
     }
+
+    task("testClasses")
 }
 
 android {

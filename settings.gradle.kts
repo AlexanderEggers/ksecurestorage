@@ -15,4 +15,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KSecureStorage"
-include(":shared")
+
+include(":lib")
+
+include(":example:androidApp")
+include(":example:shared")
