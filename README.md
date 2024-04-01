@@ -1,6 +1,6 @@
 # KSecureStorage
 
-KSecureStorage is a Kotlin Multiplatform Mobile (KMM) library designed to provide a very simple solution to handle sensitive information within Android and iOS applications. 
+KSecureStorage is a Kotlin Multiplatform Mobile (KMM) library designed to provide a simple storage solution to handle sensitive information within Android and iOS applications. 
 It seamlessly integrates with standard platform-specific encryption mechanisms (`EncryptedSharedPreferences` on Android and `Keychain` on iOS) to ensure data encryption and protection.
 
 ## Installation
@@ -17,13 +17,15 @@ repositories {
 sourceSets {
     val commonMain by getting {
         dependencies {
-            implementation("io.github.alexandereggers:ksecurestorage:<version>")
+            implementation("io.github.alexandereggers:ksecurestorage:0.0.1")
         }
     }
 }
 ```
 
 ## Initialization
+
+`KSecureStorage` is the main class for dealing with the secure storage wrapper and should only be defined once in the app.
 
 ```kotlin
 import io.github.alexandereggers.ksecurestorage.IKSecureStorage
@@ -35,7 +37,7 @@ module {
 }
 
 // But you can also define that as a constant somewhere
-const val kSecureStorage = KSecureStorage()
+val kSecureStorage = KSecureStorage()
 ```
 
 ## Usage
@@ -44,7 +46,7 @@ const val kSecureStorage = KSecureStorage()
 import io.github.alexandereggers.ksecurestorage.hasItem
 
 // save an item
-kSecureStorage.setItem("mItemKey", "someValue")
+kSecureStorage.setItem("myItemKey", "someValue")
 
 // retrieve an item
 kSecureStorage.getItem("myItemKey")
@@ -53,13 +55,11 @@ kSecureStorage.getItem("myItemKey")
 kSecureStorage.hasItem("myItemKey")
 
 // delete an item
-kSecureStorage.removeItem("mItemKey")
+kSecureStorage.removeItem("myItemKey")
 
 // clear all data from the secure storage
 kSecureStorage.clear()
 ```
-
-When `IKSecureStorage` interface which also allows much simpler mocking in your tests.
 
 ## License
 
