@@ -4,17 +4,17 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.alexandereggers"
+group = "io.github.alexandereggers"
 version = "0.0.1"
 
 kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "11"
             }
         }
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release")
     }
 
     listOf(
@@ -23,7 +23,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            this.baseName = baseName
             isStatic = true
         }
     }
@@ -50,7 +50,20 @@ android {
         minSdk = 21
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/AlexanderEggers/ksecurestorage")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GH_USER")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GH_TOKEN")
+            }
+        }
     }
 }

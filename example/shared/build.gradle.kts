@@ -30,7 +30,7 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.lib)
+            implementation(projects.ksecurestorage)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
