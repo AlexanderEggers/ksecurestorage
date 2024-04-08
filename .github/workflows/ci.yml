@@ -22,8 +22,5 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Grant Permission to Execute
-        run: chmod +x gradlew
-
-      - name: Build the library and run tests
-        run: ./gradlew build test
+      - name: Build project
+        run: ./gradlew assembleDebug

@@ -16,9 +16,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Grant Permission to Execute
-        run: chmod +x gradlew
-
       - name: Release library
         run: ./gradlew ksecurestorage:publish
         env:
