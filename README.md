@@ -17,7 +17,7 @@ repositories {
 sourceSets {
     val commonMain by getting {
         dependencies {
-            implementation("io.github.alexandereggers:ksecurestorage:0.0.1")
+            implementation("io.github.alexandereggers:ksecurestorage:0.0.2")
         }
     }
 }
