@@ -17,7 +17,7 @@ repositories {
 sourceSets {
     val commonMain by getting {
         dependencies {
-            implementation("io.github.alexandereggers:ksecurestorage:0.0.2")
+            implementation("io.github.alexandereggers:ksecurestorage:0.0.3")
         }
     }
 }
@@ -43,22 +43,43 @@ val kSecureStorage = KSecureStorage()
 ## Usage
 
 ```kotlin
-import io.github.alexandereggers.ksecurestorage.hasItem
-
-// save an item
+/**
+ * Save an item to the secure storage.
+ * 
+ * Note: if you want to store a different type than a string, you can use the setItem extension 
+ * functions which covers other types.
+ */
 kSecureStorage.setItem("myItemKey", "someValue")
 
-// retrieve an item
+// Retrieve an item from the secure storage.
 kSecureStorage.getItem("myItemKey")
 
-// extension function to check if an item is existing in the secure storage
-kSecureStorage.hasItem("myItemKey")
-
-// delete an item
+// Delete an item from the secure storage.
 kSecureStorage.removeItem("myItemKey")
 
-// clear all data from the secure storage
+// Clear all data from the secure storage.
 kSecureStorage.clear()
+
+// This library also includes a range of extension function to simplify the usage
+
+// This function checks if an item exists in the secure storage.
+kSecureStorage.hasItem("myItemKey")
+
+// These functions retrieve an item from the secure storage and casts it to the desired type.
+kSecureStorage.getString("myItemKey")
+kSecureStorage.getInt("myItemKey")
+kSecureStorage.getBoolean("myItemKey")
+kSecureStorage.getFloat("myItemKey")
+kSecureStorage.getDouble("myItemKey")
+kSecureStorage.getLong("myItemKey")
+
+/**
+ * This is an an additional extension function which will make use of 
+ * https://github.com/Kotlin/kotlinx.serialization to return the desired object type.
+ * 
+ * This function also takes optionally the [DeserializationStrategy] as a parameter.
+ */
+kSecureStorage.getTypedObject<MyObject>("myItemKey")
 ```
 
 ## License
@@ -66,6 +87,6 @@ kSecureStorage.clear()
 KSecureStorage is available under the MIT license. See the [LICENSE](https://github.com/AlexanderEggers/ksecurestorage/blob/main/LICENSE) file for more info.
 
 ## Road to 1.0
-- [ ] Add iOS support
+- [x] Add iOS support
 - [ ] Add mavenCentral support
 - [ ] Add tests

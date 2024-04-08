@@ -12,7 +12,7 @@ class Greeting {
     fun greet(): String {
         val hasDisplayedBefore = kSecureStorage.hasItem(TEST_STORAGE_KEY)
 
-        return if(hasDisplayedBefore) {
+        return if (hasDisplayedBefore) {
             kSecureStorage.removeItem(TEST_STORAGE_KEY)
             "Welcome back, ${platform.name}!"
         } else {
