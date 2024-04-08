@@ -46,8 +46,8 @@ val kSecureStorage = KSecureStorage()
 /**
  * Save an item to the secure storage.
  * 
- * Note: if you want to store a different type than a string, you can use the setItem extension 
- * functions which covers other types.
+ * Note: if you want to store a different type than a string, you can use the setItem 
+ * extension functions which covers other types.
  */
 kSecureStorage.setItem("myItemKey", "someValue")
 
@@ -65,7 +65,10 @@ kSecureStorage.clear()
 // This function checks if an item exists in the secure storage.
 kSecureStorage.hasItem("myItemKey")
 
-// These functions retrieve an item from the secure storage and casts it to the desired type.
+/**
+ * These functions retrieve an item from the secure storage and casts it to the 
+ * desired type.
+ */
 kSecureStorage.getString("myItemKey")
 kSecureStorage.getInt("myItemKey")
 kSecureStorage.getBoolean("myItemKey")
@@ -75,7 +78,7 @@ kSecureStorage.getLong("myItemKey")
 
 /**
  * This is an an additional extension function which will make use of 
- * https://github.com/Kotlin/kotlinx.serialization to return the desired object type.
+ * https://github.com/Kotlin/kotlinx.serialization to return the desired type.
  * 
  * This function also takes optionally the [DeserializationStrategy] as a parameter.
  */
