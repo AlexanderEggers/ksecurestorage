@@ -9,10 +9,14 @@ import platform.Security.*
 actual class KSecureStorage actual constructor() : IKSecureStorage {
 
     override fun setItem(key: String, value: String?) {
+        val valueAsNSString = value?.run {
+            NSString.create(string = this).dataUsingEncoding(NSUTF8StringEncoding)
+        }
+
         val query = query(
             kSecClass to kSecClassGenericPassword,
             kSecAttrAccount to CFBridgingRetain(key),
-            kSecValueData to CFBridgingRetain(value)
+            kSecValueData to CFBridgingRetain(valueAsNSString)
         )
 
         SecItemDelete(query)
