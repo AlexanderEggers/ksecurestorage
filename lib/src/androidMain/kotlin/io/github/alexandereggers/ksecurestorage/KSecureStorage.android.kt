@@ -9,7 +9,6 @@ import androidx.security.crypto.MasterKey
 
 private const val SHARED_PREFERENCES_FILENAME = "K_SECURE_STORAGE_ENCRYPTED_STORAGE_SHARED_PREF"
 
-@Suppress("unused")
 actual class KSecureStorage : IKSecureStorage {
 
     private var sharedPreferences: SharedPreferences? = null

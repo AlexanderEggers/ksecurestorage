@@ -2,7 +2,6 @@ package io.github.alexandereggers.ksecurestorage.example
 
 import io.github.alexandereggers.ksecurestorage.KSecureStorage
 import io.github.alexandereggers.ksecurestorage.getBoolean
-import io.github.alexandereggers.ksecurestorage.hasItem
 import io.github.alexandereggers.ksecurestorage.setItem
 
 const val TEST_STORAGE_KEY = "hasDisplayedBefore"
